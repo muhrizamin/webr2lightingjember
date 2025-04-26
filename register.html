@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/logo r2 lighting.jpg" type="image/x-icon">
+
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .register-container {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        .register-container h2 {
+            margin-bottom: 20px;
+        }
+        .register-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+        }
+        .register-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #037df7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <input type="text" id="newUsername" placeholder="Username baru"><br>
+        <input type="password" id="newPassword" placeholder="Password baru"><br>
+        <button onclick="register()">Register</button>
+        <p>Sudah punya akun? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+        function register() {
+            var newUser = document.getElementById('newUsername').value;
+            var newPass = document.getElementById('newPassword').value;
+
+            if (newUser && newPass) {
+                localStorage.setItem("username", newUser);
+                localStorage.setItem("password", newPass);
+                alert("Register berhasil! Silakan login.");
+                window.location.href = "login.html";
+            } else {
+                alert("Isi semua field!");
+            }
+        }
+    </script>
+</body>
+</html>
